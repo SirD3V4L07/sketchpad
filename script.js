@@ -35,5 +35,6 @@ function drawSketchboard(divNumberHandler) {
 
 
 setupSlider();
+drawSketchboard(divNumber);
 
 
