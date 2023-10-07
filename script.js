@@ -1,4 +1,14 @@
+let divNumber = 0;
 
+function setupSlider () {
+    let slider = document.getElementById("div-number-slider");
+    let sliderOutput = document.getElementById("slider-value");
+
+    sliderOutput.innerHTML = slider.value;
+    slider.oninput = function() {
+        sliderOutput.innerHTML = this.value;
+    };
+}
 
 function drawSketchboard() {
     const divRows = [];
@@ -15,5 +25,7 @@ function drawSketchboard() {
     }
 }
 
+
+setupSlider();
 drawSketchboard();
 
