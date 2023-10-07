@@ -9,6 +9,7 @@ function setupSlider () {
         sliderOutput.innerHTML = this.value;
         divNumber = slider.value;
         drawSketchboard(divNumber);
+        paintDivs();
     };
 }
 
@@ -33,8 +34,24 @@ function drawSketchboard(divNumberHandler) {
     }
 }
 
+function paintDivs() {
+    let mouseDown = false;
+    document.body.onmousedown = () => (mouseDown = true)
+    document.body.onmouseup = () => (mouseDown = false)
+    const divsHandler = document.querySelectorAll(".column");
+    divsHandler.forEach(function(divsHandler) {
+            divsHandler.addEventListener("mouseover", function() {
+                if (mouseDown) {
+                   divsHandler.style.backgroundColor = "black";
+                }
+            });             
+            divsHandler.addEventListener("click", function(){divsHandler.style.backgroundColor = "black";})
+    })
+    
+}
 
 setupSlider();
 drawSketchboard(divNumber);
+paintDivs();
 
 
